@@ -1,34 +1,25 @@
 <template>
-  <form v-if="!hasGoal" @submit.prevent="handleSubmit" class="intention-form">
-    <div class="form-group">
+  <section>
+    <form v-if="!hasGoal" @submit.prevent="handleSubmit" class="intention-form-wrapper">
       <input
-        id="intention-input"
+        id="intention-form-input"
         v-model="intention"
         type="text"
         placeholder="What needs to be done this week?"
         class="intention-form-input"
       />
-    </div>
-    <button
-      style="background-color: var(--success)"
-      type="submit"
-      class="submit-btn"
-      :disabled="!intention.trim()"
-    >
-      Set
-    </button>
-  </form>
-  <form v-else @submit.prevent="handleReset" class="intention-form">
-    <div class="form-group">
+      <button type="submit" class="btn" :disabled="!intention.trim()">Set Intention</button>
+    </form>
+    <form v-else @submit.prevent="handleReset" class="intention-form-wrapper">
       <input
         type="text"
         :placeholder="currentWeek.goal.text"
         class="intention-form-input intention-form-display"
         disabled
       />
-    </div>
-    <button style="background-color: var(--danger)" type="submit" class="submit-btn">Unset</button>
-  </form>
+      <button type="submit" class="btn btn-danger">Unset</button>
+    </form>
+  </section>
 </template>
 
 <script setup>
@@ -66,39 +57,31 @@ watch(hasGoal, (newHasGoal) => {
 </script>
 
 <style scoped>
-.intention-form {
+.intention-form-wrapper {
+  width: 100%;
   font-family: 'Times New Roman', Times, serif;
   display: flex;
-  gap: var(--app-spacing);
+  gap: 2rem;
   align-items: center;
-}
-
-.form-group {
-  flex: 1;
-  min-width: 0;
+  justify-content: space-between;
 }
 
 .intention-form-input {
-  display: block;
-  width: 100%;
-  padding: 0.5rem 0;
-  border: none;
-  border-bottom: 2px solid var(--app-color);
-  background: transparent;
+  background-color: transparent;
   color: var(--app-color);
-  font-family: inherit;
   font-size: 4rem;
-  overflow: scroll;
-  font-weight: 300;
-  transition: border-color var(--app-transition);
+  padding: var(--app-spacing);
+  border: var(--app-border-width) transparent solid;
+  flex: 1;
 }
 
 .intention-form-input::placeholder {
-  color: var(--app-color);
+  font-size: inherit;
 }
 
 .intention-form-input:focus {
   outline: none;
+  field-sizing: content;
   border-bottom-color: var(--app-accent-color);
 }
 
@@ -106,24 +89,11 @@ watch(hasGoal, (newHasGoal) => {
   cursor: default;
 }
 
-.submit-btn {
-  padding: 0.5rem 1.5rem;
-  background: transparent;
-  color: var(--app-color);
-  border: var(--app-border-width) transparent solid;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all var(--app-transition);
-  white-space: nowrap;
+.btn {
+  font-size: 2rem;
 }
 
-.submit-btn:hover:not(:disabled) {
-  background: var(--white);
-  color: var(--white);
-}
-
-.submit-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+.btn-danger {
+  background-color: var(--danger);
 }
 </style>

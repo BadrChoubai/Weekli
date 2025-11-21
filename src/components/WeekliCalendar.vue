@@ -1,21 +1,28 @@
 <template>
-  <section class="grid" v-if="currentWeek">
-    <template v-for="(day, index) in currentWeek.days" :key="day.id">
-      <div class="day" :class="getDayClass(index)">
-        <header>
-          <h2>{{ day.dayOfWeek }}</h2>
-        </header>
-        <div class="tasks">
-          <div v-for="task in day.tasks" :key="task.id" class="task">
-            <input type="checkbox" :checked="task.completed" />
-            <span :class="{ completed: task.completed }">{{ task.text }}</span>
-          </div>
-          <button class="add-task-btn" @click="navigateToAddTask(index)" aria-label="Add task">
-            <PlusIcon size="24" />
-          </button>
-        </div>
+  <section>
+    <header class="calendar-header">
+      <div>
+        <h2>Week of: {{ currentWeek.id }}</h2>
       </div>
-    </template>
+    </header>
+    <div class="grid" v-if="currentWeek">
+      <template v-for="(day, index) in currentWeek.days" :key="day.id">
+        <div class="day" :class="getDayClass(index)">
+          <header>
+            <h2>{{ day.dayOfWeek }}</h2>
+          </header>
+          <div class="tasks">
+            <div v-for="task in day.tasks" :key="task.id" class="task">
+              <input type="checkbox" :checked="task.completed" />
+              <span :class="{ completed: task.completed }">{{ task.text }}</span>
+            </div>
+            <button class="add-task-btn" @click="navigateToAddTask(index)" aria-label="Add task">
+              <PlusIcon size="24" />
+            </button>
+          </div>
+        </div>
+      </template>
+    </div>
   </section>
 </template>
 
@@ -50,9 +57,9 @@ const navigateToAddTask = (dayIndex) => {
   grid-template-columns: repeat(7, 400px);
   gap: var(--app-spacing);
   background-color: var(--app-surface-color);
-  padding: 1rem;
-  height: 80svh;
-  grid-template-areas: 'mon tue wed thur fri  sat sun';
+  padding: 2rem;
+  height: 70svh;
+  grid-template-areas: 'mon tue wed thur fri sat sun';
 }
 
 .day {
@@ -87,21 +94,6 @@ header h2 {
   margin: 0;
   font-size: 1.25rem;
   color: var(--app-color);
-}
-
-.weekly-goal {
-  margin-top: 0.5rem;
-  padding: 0.75rem;
-  background: var(--app-highlight-color);
-  border-radius: 6px;
-  border-left: 4px solid var(--app-accent-color);
-}
-
-.weekly-goal p {
-  margin: 0;
-  font-size: 0.875rem;
-  color: var(--app-highlight-text-color);
-  font-weight: 500;
 }
 
 .tasks {
