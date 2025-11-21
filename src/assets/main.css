@@ -133,9 +133,9 @@ main {
   display: block;
 }
 
-body > header,
-body > main,
-body > footer {
+body>header,
+body>main,
+body>footer {
   padding-block: var(--app-block-spacing-vertical);
 }
 
@@ -143,12 +143,12 @@ hgroup {
   margin-bottom: var(--app-typography-spacing-vertical);
 }
 
-hgroup > * {
+hgroup>* {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-hgroup > *:not(:first-child):last-child {
+hgroup>*:not(:first-child):last-child {
   --app-font-weight: unset;
   font-size: 1rem;
 }
@@ -158,6 +158,7 @@ hgroup > *:not(:first-child):last-child {
    ========================================================= */
 .container {
   width: var(--app-container-width);
+  height: 100svh;
   margin-inline: auto;
   padding-inline: auto;
 }
@@ -175,7 +176,6 @@ hgroup > *:not(:first-child):last-child {
   grid-column-gap: var(--app-grid-column-gap);
   grid-row-gap: var(--app-grid-row-gap);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(0%, 1fr));
 }
 
 @media (min-width: 750px) {
@@ -184,7 +184,7 @@ hgroup > *:not(:first-child):last-child {
   }
 }
 
-.grid > * {
+.grid>* {
   min-width: 0;
 }
 

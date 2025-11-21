@@ -9,7 +9,14 @@
         class="intention-form-input"
       />
     </div>
-    <button type="submit" class="submit-btn" :disabled="!intention.trim()">Set</button>
+    <button
+      style="background-color: var(--success)"
+      type="submit"
+      class="submit-btn"
+      :disabled="!intention.trim()"
+    >
+      Set
+    </button>
   </form>
   <form v-else @submit.prevent="handleReset" class="intention-form">
     <div class="form-group">
@@ -80,7 +87,8 @@ watch(hasGoal, (newHasGoal) => {
   background: transparent;
   color: var(--app-color);
   font-family: inherit;
-  font-size: 1.75rem;
+  font-size: 4rem;
+  overflow: scroll;
   font-weight: 300;
   transition: border-color var(--app-transition);
 }
@@ -96,16 +104,13 @@ watch(hasGoal, (newHasGoal) => {
 
 .intention-form-display {
   cursor: default;
-  opacity: 0.7;
 }
 
 .submit-btn {
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.5rem;
   background: transparent;
   color: var(--app-color);
-  border: 2px solid var(--app-color);
-  border-radius: 4px;
-  font-size: 0.95rem;
+  border: var(--app-border-width) transparent solid;
   font-weight: 600;
   cursor: pointer;
   transition: all var(--app-transition);
@@ -113,8 +118,8 @@ watch(hasGoal, (newHasGoal) => {
 }
 
 .submit-btn:hover:not(:disabled) {
-  background: var(--app-color);
-  color: var(--app-surface-color);
+  background: var(--white);
+  color: var(--white);
 }
 
 .submit-btn:disabled {

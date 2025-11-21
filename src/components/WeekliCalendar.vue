@@ -49,13 +49,15 @@ const navigateToAddTask = (dayIndex) => {
   overflow-x: scroll;
   grid-template-columns: repeat(7, 400px);
   gap: var(--app-spacing);
+  background-color: var(--app-surface-color);
+  padding: 1rem;
   height: 80svh;
   grid-template-areas: 'mon tue wed thur fri  sat sun';
 }
 
 .day {
   color: var(--app-color);
-  background: var(--app-surface-color);
+  background: var(--app-surface-color--opaque);
   box-shadow: var(--app-box-shadow);
   transition:
     translate var(--app-transition),
