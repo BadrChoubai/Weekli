@@ -69,14 +69,9 @@ watch(hasGoal, (newHasGoal) => {
 .intention-form-input {
   background-color: transparent;
   color: var(--app-color);
-  font-size: 4rem;
   padding: var(--app-spacing);
   border: var(--app-border-width) transparent solid;
   flex: 1;
-}
-
-.intention-form-input::placeholder {
-  font-size: inherit;
 }
 
 .intention-form-input:focus {
@@ -87,10 +82,6 @@ watch(hasGoal, (newHasGoal) => {
 
 .intention-form-display {
   cursor: default;
-}
-
-.btn {
-  font-size: 2rem;
 }
 
 .btn-danger {

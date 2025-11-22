@@ -14,10 +14,14 @@ import IntentionForm from '@/components/IntentionForm.vue'
     <IntentionForm />
     <WeekliCalendar />
   </main>
+  <footer class="container">
+    <span> &copy; 2025 &mdash; Weekli</span>
+  </footer>
 </template>
 
 <style scoped>
-header {
-  padding: 1rem 0;
+header,
+footer {
+  margin-block: var(--app-block-spacing-horizontal) var(--app-block-spacing-vertical);
 }
 </style>

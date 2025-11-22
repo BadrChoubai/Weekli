@@ -28,10 +28,13 @@ const currentWeek = computed(() => {
   display: grid;
   overflow-x: scroll;
   grid-template-columns: repeat(7, 400px);
-  gap: var(--app-spacing);
+  padding: var(--app-spacing);
   background-color: var(--app-surface-color);
-  padding: 2rem;
   grid-template-areas: 'mon tue wed thur fri sat sun';
+}
+
+header {
+  margin-bottom: var(--app-spacing);
 }
 
 .mon {

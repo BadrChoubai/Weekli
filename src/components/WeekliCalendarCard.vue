@@ -21,7 +21,7 @@ const navigateToAddTask = (dayIndex) => {
 <template>
   <div class="day" :class="getDayClass(index)">
     <header>
-      <h2>{{ day.dayOfWeek }}</h2>
+      <h3>{{ day.dayOfWeek }}</h3>
     </header>
     <div class="tasks">
       <div v-for="task in day.tasks" :key="task.id" class="task">
@@ -38,11 +38,8 @@ const navigateToAddTask = (dayIndex) => {
 <style>
 .day {
   color: var(--app-color);
+  height: 600px;
   background: var(--app-surface-color--opaque);
-  box-shadow: var(--app-box-shadow);
-  transition:
-    translate var(--app-transition),
-    box-shadow var(--app-transition);
   cursor: pointer;
   padding: var(--app-spacing);
   display: flex;
@@ -54,19 +51,15 @@ const navigateToAddTask = (dayIndex) => {
 .day:hover {
   background: var(--app-surface-color--opaque);
   color: white;
-  transform: translateY(-1px);
-  box-shadow: var(--app-box-shadow--hover);
 }
 
 header {
-  margin-bottom: 1rem;
-  border-bottom: 2px solid var(--app-border-color);
-  padding-bottom: 1rem;
+  padding-block: var(--app-block-spacing-horizontal);
+  border-bottom: var(--app-border-width) var(--app-border-color) solid;
 }
 
 header h2 {
   margin: 0;
-  font-size: 1.25rem;
   color: var(--app-color);
 }
 
@@ -98,7 +91,6 @@ header h2 {
 }
 
 .task span {
-  font-size: 0.95rem;
   color: var(--app-color);
   flex: 1;
 }
