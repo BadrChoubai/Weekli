@@ -44,6 +44,10 @@
   --warning: var(--yellow);
   --info: var(--blue);
 
+  --app-box-shadow: 0 .1rem .2rem rgba(0, 0, 0, .12);
+  --app-box-shadow--hover: 0 .2rem .3rem rgba(0, 0, 0, .2);
+
+
   /* Spacing */
   --app-spacing: 1rem;
   --app-border-radius: 0;
@@ -78,6 +82,7 @@
 
   --app-typography-spacing-vertical: 1rem;
   --app-line-height: 1.5;
+  --app-text-underline-offset: 0.1rem;
 
   --app-font-weight: 400;
 }
@@ -418,4 +423,8 @@ button,
   -moz-user-select: none;
   user-select: none;
   transition: background-color var(--app-transition), border-color var(--app-transition), color var(--app-transition), box-shadow var(--app-transition);
+}
+
+button:hover {
+  box-shadow: var(--app-box-shadow--hover);
 }

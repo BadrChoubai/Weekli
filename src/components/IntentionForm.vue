@@ -17,7 +17,7 @@
         class="intention-form-input intention-form-display"
         disabled
       />
-      <button type="submit" class="btn btn-danger">Unset</button>
+      <button type="submit" class="btn-danger">Unset</button>
     </form>
   </section>
 </template>
